@@ -1,0 +1,55 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      List of all artists
+    </h1>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table" border="1" >
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Bio
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @artists.each do |artist| %>
+      <tr>
+        <td>
+          <%= artist.id %>
+        </td>
+
+        <td>
+          <%= artist.name %>
+        </td>
+
+        <td>
+          <%= artist.bio %>
+        </td>
+
+        <td>
+          <a href="/artists/<%= artist.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

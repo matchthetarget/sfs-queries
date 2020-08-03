@@ -1,0 +1,72 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      List of all venues
+    </h1>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table" border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Size
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          City
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @venues.each do |venue| %>
+      <tr>
+        <td>
+          <%= venue.id %>
+        </td>
+
+        <td>
+          <%= venue.name %>
+        </td>
+
+        <td>
+          <%= venue.size %>
+        </td>
+
+        <td>
+          <%= venue.description %>
+        </td>
+
+        <td>
+          <% city = City.where({ :id => venue.city_id }).at(0) %>
+          <a href="/cities/<%= city.id %>"><%= city.name %></a>
+        </td>
+
+        <td>
+          <a href="/venues/<%= venue.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
